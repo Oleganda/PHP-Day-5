@@ -35,7 +35,7 @@ if (isset($_POST["update"])) {
 
     if (mysqli_query($connect, $sql)) {
         echo  "<div class='alert alert-success' role='alert'>
-       Profile has been updated {$picture[1]}
+       Profile has been updated {$picture[1]}                            
      </div>";
         header("refresh: 2; url=$backBtn");
     } else {

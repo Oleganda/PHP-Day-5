@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <nav class="navbar" style="background-color: white;">
+    <nav class="navbar fixed-top" style="background-color: white;">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="login.php">Log in</a>
@@ -19,7 +19,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="regester.php">For New Customers</a>
+                            <a class="nav-link" href="regester.php">New Account</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
