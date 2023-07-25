@@ -56,8 +56,9 @@ if (isset($_POST["login"])) {
                 header("Location: dashboard.php");
             }
         } else {
-            echo   "<div class='alert alert-danger'>
-               <p>Something went wrong, please try again later ...</p>
+            echo   "
+            <div class='alert alert-danger mt-5'>
+               <p>Something went wrong, please try again later</p>
            </div>";
         }
     }
@@ -87,17 +88,17 @@ if (isset($_POST["login"])) {
                 <div class="row gx-lg-5 align-items-center">
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <h1 class="my-5 display-3 fw-bold ls-tight">
-                            <br />
-                            <span class="text-dark">Find new customers</span>
+                            You create.<br />
+                            <span class="text-dark">We sell.</span>
                         </h1>
                         <p style="color: hsl(217, 10%, 50.8%)">
                             On our platform you could find best suppliers and new clients for your handmade masterpieces.
                             <br>
                             Sign Up for free or if
-                            your already have an account log in and start your buisness here.
+                            your already have an account Log In and start your buisness here.
                             <br>
-                            More tha 2000 prople are selling and buying handmade
-                            items on Knit With Smile website.
+                            More tha 2000 people are selling and buying handmade
+                            items on "Knit With Smile" website.
                         </p>
                     </div>
 

@@ -4,7 +4,7 @@ require_once "db_connect.php";
 require_once "upload_file.php";
 
 if (isset($_SESSION["user"])) {
-    header("Location: login.php");
+    header("Location: ../products.php");
 }
 
 if (!isset($_SESSION["user"]) && !isset($_SESSION["adm"])) {
@@ -17,21 +17,21 @@ $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
 
 $sqlUsers = "SELECT * FROM users WHERE status != 'adm'";
-$resultUsers = $mysql_query($connect, $sqlUsers);
+$resultUsers = mysqli_query($connect, $sqlUsers);
 $layout = "";
 
-if ($my_sql_nom_rows($resultUsers)) {
-    while ($Userrow = mysqli_fetch_assoc($resultUser)) {
+if (mysqli_num_rows($resultUsers)) {
+    while ($userRow = mysqli_fetch_assoc($resultUsers)) {
         $layout .= "<div class='card mb-3' style='max-width: 540px;'>
   <div class='row g-0'>
     <div class='col-md-4'>
-      <img src='photos/<?={$userRow["picture"]}?>' class='img-fluid rounded-start' alt='...'>
+      <img src='photos/{$userRow["picture"]}' class='img-fluid rounded-start' alt='...'>
     </div>
     <div class='col-md-8'>
       <div class='card-body'>
         <h5 class='card-title'><?={$userRow["first_name"]} {$userRow["last_name"]}?></h5>
         <p class='card-text'>{$userRow["email"]}</p>
-        <p class='card-text'>{$userRow["day_of_birth"]}</p>
+        <p class='card-text'>{$userRow["date_of_birth"]}</p>
         <a href='update.php?id={$userRow["id"]}' class='btn btn-light'>Update</a> 
         <p class='card-text'><small class='text-body-secondary'>Last updated 3 mins ago</small></p>
       </div>
@@ -66,7 +66,7 @@ if ($my_sql_nom_rows($resultUsers)) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Products</a>
+                        <a class="nav-link active" aria-current="page" href="products/index.php">Products</a>
                     </li>
                     <li class="nav-item">
                         <a href="update.php?id=<?= $row['id'] ?>" class="nav-link">Edit</a>

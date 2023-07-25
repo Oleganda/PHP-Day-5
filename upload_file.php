@@ -1,10 +1,14 @@
 <?php
 
-function uploadFile($picture)   //$_FILES[$picture"]
+function uploadFile($picture, $source = "user")   //$_FILES[$picture"]  //add $source - we know that it comes from the user
 
 {
     if ($picture["error"] == 4) {
         $pictureName = "profile.png";
+
+        if ($source == "product") {
+            $pictureName = "dummy.jpg";
+        }
         $message = "No photo, but you can add it later";
     } else {
         $checkType = getimagesize($picture["tmp_name"]);
@@ -16,6 +20,11 @@ function uploadFile($picture)   //$_FILES[$picture"]
         $pictureName = uniqid("") . "." . $ext;
 
         $destination = "photos/{$pictureName}";
+
+        if ($source == "product") {
+            $destination = "../photos/{$pictureName}";
+        }
+
         move_uploaded_file($picture["tmp_name"], $destination);
     }
 

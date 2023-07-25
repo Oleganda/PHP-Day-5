@@ -2,6 +2,6 @@
 $userName = "root";
 $hostName = "localhost";
 $password = "";
-$dbName = "shop";
+$dbName = "crud_with_login";
 
 $connect = mysqli_connect($hostName, $userName, $password, $dbName);

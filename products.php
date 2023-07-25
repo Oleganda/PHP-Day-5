@@ -14,6 +14,30 @@ if (!isset($_SESSION["user"]) && !isset($_SESSION["adm"])) {
 $sql = "SELECT * FROM users WHERE id = {$_SESSION["user"]}";    //query about the user who loged in
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
+
+
+$sqlProducts = "SELECT * FROM products";
+$resultProducts = mysqli_query($connect, $sqlProducts);
+
+$layout = "";
+
+if (mysqli_num_rows($resultProducts) > 0) {
+    while ($rowProduct = mysqli_fetch_assoc(($resultProducts))) {
+
+        $layout .= "<div class='card p-0' style='width: 300px; 'height = 70px'>
+        <img src='photos/{$rowProduct["Img"]}' class='card-img-top' alt='...'>
+        <div class='card-body'>
+            <h5 class='card-title'>{$rowProduct["Name"]}</h5>
+            <p class='card-text'> {$rowProduct["Description"]}</p>
+            <p class='card-text'> {$rowProduct["Material"]}</p>
+             <p class='card-text'> {$rowProduct["Price"]} €</p> 
+             <div class='d-flex justify-content-center'><a href='products/details.php?x={$rowProduct["Id"]}' class='btn btn-warning'>Details</a>
+        </div>
+    </div>";
+    }
+} else {
+    $layout .= "No results found!";
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +61,10 @@ $row = mysqli_fetch_assoc($result);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Products</a>
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="products/create_product.php">Add Product</a>
                     </li>
                     <li class="nav-item">
                         <a href="update.php?id=<?= $row['id'] ?>" class="nav-link">Edit</a>
@@ -52,7 +79,11 @@ $row = mysqli_fetch_assoc($result);
 </nav>
 <h2 class="d-flex justify-content-center m-5">Hello, <?= $row["first_name"] . " " . $row["last_name"] ?>!</h2>
 
-
+<div class="container">
+    <div class="row">
+        <?= $layout ?>
+    </div>
+</div>
 
 </html>
 
