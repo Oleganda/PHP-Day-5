@@ -18,11 +18,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+
                         <li class="nav-item">
-                            <a class="nav-link" href="../regester.php">New Account</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../products/create_product.php">Products</a>
+                            <a class="nav-link" href="../products.php">Back</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" name="logout" href="../logout.php?logout">Logout</a>

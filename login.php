@@ -88,17 +88,17 @@ if (isset($_POST["login"])) {
                 <div class="row gx-lg-5 align-items-center">
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <h1 class="my-5 display-3 fw-bold ls-tight">
-                            You create.<br />
-                            <span class="text-dark">We sell.</span>
+                            Handmade.<br />
+                            <span class="text-dark">For You.</span>
                         </h1>
                         <p style="color: hsl(217, 10%, 50.8%)">
-                            On our platform you could find best suppliers and new clients for your handmade masterpieces.
+                            Find and buy best handmade items from more than 1000 people
                             <br>
                             Sign Up for free or if
                             your already have an account Log In and start your buisness here.
                             <br>
                             More tha 2000 people are selling and buying handmade
-                            items on "Knit With Smile" website.
+                            items on "Handmade Shop" website.
                         </p>
                     </div>
 
@@ -126,13 +126,6 @@ if (isset($_POST["login"])) {
                                         <span class="text-danger"> <?= $passwordError ?> </span>
                                     </div>
 
-                                    <!-- Checkbox
-                                    <div class="form-check d-flex justify-content-center mb-4">
-                                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                                        <label class="form-check-label" for="form2Example33">
-                                            Subscribe to our newsletter
-                                        </label>
-                                    </div> -->
 
                                     <!-- Submit button -->
                                     <div class="d-flex justify-content-center m-2 "><button name="login" type="submit" class="btn btn-light">Log in</button></div>

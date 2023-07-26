@@ -22,7 +22,9 @@ $layout = "";
 
 if (mysqli_num_rows($resultUsers)) {
     while ($userRow = mysqli_fetch_assoc($resultUsers)) {
-        $layout .= "<div class='card mb-3' style='max-width: 540px;'>
+        $layout .= "
+        <div>
+        <div class='card mb-3' style='max-width: 540px;'>
   <div class='row g-0'>
     <div class='col-md-4'>
       <img src='photos/{$userRow["picture"]}' class='img-fluid rounded-start' alt='...'>
@@ -33,10 +35,12 @@ if (mysqli_num_rows($resultUsers)) {
         <p class='card-text'>{$userRow["email"]}</p>
         <p class='card-text'>{$userRow["date_of_birth"]}</p>
         <a href='update.php?id={$userRow["id"]}' class='btn btn-light'>Update</a> 
+        
         <p class='card-text'><small class='text-body-secondary'>Last updated 3 mins ago</small></p>
       </div>
     </div>
   </div>
+</div>
 </div>";
     }
 } else {
@@ -80,9 +84,9 @@ if (mysqli_num_rows($resultUsers)) {
     </nav>
 </nav>
 <h2 class="d-flex justify-content-center m-5">Hello, <?= $row["first_name"] . " " . $row["last_name"] ?>!</h2>
-<div class="containre">
+<div class="container">
     <div class="row row-cols-lf-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
-        <?= $layout ?>;
+        <?= $layout ?>
     </div>
 </div>
 

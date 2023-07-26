@@ -4,8 +4,8 @@ require_once "../upload_file.php";
 
 session_start();
 
-if (isset($_SESSION["adm"])) {
-    header("Location: dashboard.php");
+if (isset($_SESSION["user"])) {
+    header("Location: ../products.php");
 }
 
 if (!isset($_SESSION["user"]) && !isset($_SESSION["adm"])) {

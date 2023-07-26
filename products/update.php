@@ -4,9 +4,9 @@ require_once "../upload_file.php";
 
 session_start();
 
-// if (isset($_SESSION["user"])) {
-//     header("Location: update.php");
-// }
+if (isset($_SESSION["user"])) {
+    header("Location: ../products.php");
+}
 
 if (!isset($_SESSION["user"]) && !isset($_SESSION["adm"])) {
     header("Location: ../regester.php");
@@ -21,10 +21,10 @@ $resultSuppliers = mysqli_query($connect, "SELECT * FROM suppliers");
 $options = "";
 while ($supplierRow = mysqli_fetch_assoc($resultSuppliers)) {
     if ($row["fk_supplierId"] == $supplierRow["supplierId"]) {
-        $options = "<option selected value= '{$supplierRow["supplierID"]}'> {$supplierRow["sup_name"]} </option>";
+        $options = "<option selected value= '{$supplierRow["supplierId"]}'> {$supplierRow["sup_name"]} </option>";
     } else {
 
-        $options = "<option value= '{$supplierRow["supplierID"]}'> {$supplierRow["sup_name"]} </option>";
+        $options = "<option value= '{$supplierRow["supplierId"]}'> {$supplierRow["sup_name"]} </option>";
     }
 }
 
@@ -39,7 +39,7 @@ if (isset($_POST["update"])) {
 
     if ($_FILES["Img"]["error"] == 0) {
         if ($row["Img"] != "dummy.jpg") {
-            unlink("photos/$row[Img]");
+            unlink("../photos/$row[Img]");
         }
 
         $sql = "UPDATE `products` SET `Name`='$Name',`Material`='$Material',`Price`= `$Price`,`Img`='$Img[0]',`Description`='$Description', `fk_supplierId`='$supplier' WHERE id = $id";
